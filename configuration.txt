@@ -1,0 +1,949 @@
+CM Source Control Management
+	it is used to track the changes in the text files
+
+.....> fatest, local repo and sleek etc..,
+
+download:
+git-scm.com/downloads
+
+steps:
+
+install
+--------
+yum  -y install git
+
+1. Initialize
+	mkdir Proj_drr
+	cd  proj_dir
+
+2. git iniit
+
+3. tree -a  (check the structure with tree command , if not install)
+
+4. ls -l  ~/.gitconfig {user level config}
+	if avaliable remove it configure again.
+
+	git  config --global user.name "vijay"
+	git config --global user.email "my@mail.com"
+	git config --global color.ui true
+	git config --global  core.editor "/usr/bin/vim"
+
+check 
+	cat /home/lync/.gitconfig (it should be in home dir)
+
+in proj_dir
+	ls -la
+	you should see  .git 
+
+ git status
+	nothing to commit
+
+5. create a file index.html 
+under proj_dir
+	git add  indes.html ( copy items  from working dir to staging
+	git commit  -m "added new file" (  ..... staging to local repo
+
+update the file
+	git status
+	git add index.html ( copy items from working dir to staging)
+	git commit -m "updated...."( from staging to local-repo)
+
+git log - to check the history in descending order
+
+it shows (sha) value of 40 char  unique no. zoom in
+
+git show <sha1> --> shows the differences / updates etc. -zoom details
+
+git --oneline  ===shows sha and commits
+git diffgit log -n #
+git log --since=yyyy-mm-dd
+git log --unitil=....
+git log since=..... --unitl=...
+git log --author="xyz"
+got log --get="pattern"      got log --get="HEADER"
+
+git conifg
+git add . (all files from the current dir - multiple files)
+git commit -am "xyz" (addes and commits in single go)
+
+git remote - working with different users
+---------------
+192.168.101.134
+
+git server		---	 client
+
+push - from  local repo to the server
+pull - for server to the local
+   pull = fetch + merge (recomanded)
+
+new user
+use clone command to get all the data to the new user.
+git clone https://github.com/vijayaramulu/Devops.git <new_dir>
+
+to all the changes.... use this
+git fetch
+git merge origin/master
+
+git remote -- for checking
+
+git remote add <alias> <url>
+	git remote add origin  
+
+https://github.com/vijayaramulu/Devops.git
+
+--to push to repo.
+git push -u orgMaven master
+
+git remote rm origin (alians)
+git remote -v
+
+project based config
+cat .git/config
+
+user based conifggit fetch
+
+cat ~/.gitconfig
+
+fetch first and merge it
+git push -u origin master
+
+for git bucket we need to add in collaborators tab for upload and 
+
+downloads...
+
+  213  git fetch --help
+  218  git clone https://github.com/vijayaramulu/Test.git
+
+  226  git push -u v2Test v2
+  227  git push -u v2Test master
+  228  git branch
+  229  git remote -v
+  231  git push -u origin v2
+  232  git push -u origin master
+  258  touch t3.txt
+  259  git add t3.txt
+  260  git commit -m "new file"
+  263  git log --oneline
+  264  git status
+  265  git push -u origin v3
+  266  git checkout v3
+  267  git checkout v2
+  268  git merge
+  272  git merge origin/master
+
+
+CHEF SERVER SETUP
+================
+
+
+CHEF WORKSTATION SETUP
+======================
+
+Steps
+
+
+1. chefdk - chef development kit - 
+	install  rpm -ivh chefdk-x.x.x...rpm
+
+2. Project dir - chef-Repo
+	mkdir chefo-repo  ......> this is should be working directory
+	cd chfo-repo
+
+3. Knife configuration dir .chef
+	mkdir .chef
+	cd .chef
+
+4. knife configurtion
+
+i) ..chef-repo/.chef/knife.rb
+ii) https://chef-server/organization/foodfacotry
+iii) lynic
+iv) foodfactory-validator
+v) ..chef-repo/.chef//foodfactory-validator
+vi) cookbooks
+
+4. check config
+	cat knife.rb
+
+5. Download two .pem files from server to here.
+	1) user.pem 
+	2) org-validator.pem
+	use scp or file zila command.
+	scp chef[-server:~lync/source/*.pem
+
+6. check with tree command
+	cd ..
+	tree -a (under chef-repo)
+.chef
+	foodfactory-validator.pem
+	knife.rb
+	lync.pem
+
+7. get certificate
+	knife ssl fectch
+	trusted_certs (this file will be generated)
+
+	knife ssl check ( this show successfully verified)
+
+once all the configuration is compeleted, it will shows below tree 
+
+structure
+
+.Chefo
+  	+-- knife.rb
+	+-- lync.pem
+	+-- swiggy-validator.pem
+	+-- trusted_certs
+	+-- training_c_intrepid-charge-160414_internal.crt
+
+check "	
+
+knife user list --- it show above user
+knife client list ---- it show aabove client
+knire node list  - not yet configured
+
+Node configuration:
+=================
+
+(email , web  server......
+
+steps:
+
+1. setup new server/chef@dmin
+2. user create: chefadmin
+3. make this usersudo
+
+workstation ------> Node
+
+4) fire below command on workstation
+Knife bootstrap -x chefadmin - P chef@dmin--sudo
+
+i  Read the knife.rb
+ii   Transfer .pem files to the node
+iii  Intall the chef-client
+iV Run the Ohai
+V Register the node with server/
+
+5) Change / add all ie. server, workstation and node in hosts file....
+	with ip address and name
+
+
+6) sudo useradd chefadmin
+7) sudo passwd chefadmin -- chef@dmin
+8)sudo  usermod -G wheel chefadmin
+
+9) From workstation ping node and connect to it.
+
+	ping centos7
+	ssh centos7 -l chefadmin
+
+confirm with hostananme and ls -l /root
+
+quit from node  (exit)
+
+10) execute bootstrap command from workstation to node from chef-
+
+repo folder only
+
+knife bootstrap  <node ip> -N <Node name> -x username -P paswword
+
+knife bootstrap 104.197.92.181 -N centos7 -x chefadmin -P chef@dmin 
+
+--sudo
+
+
+i  Read the knife.rb
+ii Transfer .pem files to the node
+iii  install chef-client
+iv Run the ohai
+v  Register the node with server
+
+check below:
+knife user list --- lync
+knife client list ---- it show aabove client
+knire node list  - centos7
+
+11) login with schef erver ip on web browser
+
+you should see node details
+
+
+============ ========================
+
+create cookbook
+=============
+
+1) Logn to ur workstation
+2) go to proj_dir  chef-repo
+3) creatre ur first cookbook
+	knife cookbook create pancake  --- Previous version
+	chef  generate cookbook -- new version
+
+check:
+[s_vijaya_ramulu@workstation cookbooks]$ tree -a
+.
++-- pancake
+    +-- attributes
+    +-- CHANGELOG.md
+    +-- definitions
+    +-- files
+    ¦   +-- default
+    +-- libraries
+    +-- metadata.rb
+    +-- providers
+    +-- README.md
+    +-- recipes
+    ¦   +-- default.rb
+    +-- resources
+    +-- templates
+        +-- default
+
+4) change the meta data in cookbook/metadata
+comapany name
+email etc.,
+
+sudo vi pancake/metadata.rb 
+
+5) write recipes
+
+sudo vi pancake/recipes/default.rb
+
+file '/tmp/dummy.txt' do
+	content 'this is chef file...'
+	mode 0644
+	owner 'root'
+	group 'root'
+end
+
+6) knife cookbook upload pancake
+
+check:
+knife cookbook list
+
+7) assocaite cookbook with  the node
+
+
+knife node show <node name>
+knife node show centos7
+
+knife node run_list add <nodename> <cookbook>
+knife node run_list add centos7 pancake
+
+8) execute the sudo chef-client command on thenode
+sudo chef-client
+
+check :
+we will able to see the dummy.txt file in tmp file 
+
+
+==================================================
+
+creating 2nd recipe
+
+creating direcotry
+
+1) change the metadata file 0.2.0 version
+	sudo vi cookbooks/pancake/metadata.rb 
+
+2) update the recipe.rb file
+	cd chefo-repo folder
+	vi cookbook/pancake/recipes/default.rb
+
+file '/tmp/dummy.txt' do
+        content 'This files is created by chef..'
+        mode 0644
+        owner 'root'
+        group 'root'
+end
+
+directory '/opt/tomcat' do
+	mode 0755
+	owner 'root'
+	group 'root'
+end
+
+3)	knife cookbook upload pancake
+check
+
+cookbook  0.2.0 
+
+4) run sudo chef-client under node server
+check 
+u able to the new changes..
+
+======================================
+
+create new cookbook (create Appache web server)
+=====================================
+
+Manual setups
+----------------
+yum -y install httpd
+enable service httpd
+start the service
+
+add index.html file
+
+1) knife cookbook create  <cookname>
+	knife cookbook create  <cookname>web-server
+
+2) Add recipe
+sudo vi cookbooks/web-server/recipes/default.rb
+
+package 'httpd'
+
+service 'httpd' do
+	action [:enable, :start]
+end
+
+file '/var/www/html/index.html' do
+	content 'welcome to the chef Automation'
+	mode 0644
+	owner 'root'
+	group 'root'
+end
+
+we can have one excution command also but not recommanded...
+execute 'sudo chown apache:apache /var/www/html/index.html'
+
+3) upload the recipe to the server
+	sudo knife cookbook upload web-server
+
+4) assocation this cookbook to node
+
+knife node run_list add <nodename> <cookbook>
+knife node run_list add centos7 pancake
+
+or
+
+knife node edit <nodename>
+knife node edit centos7
+
+if prompted for enviroment varialbe the
+	export EDITOR=`which vim` 	(' NOT THIS, ` THIS ONE)
+CHECK
+	echo $EDITOR
+	knife node edit centos7 (new recipe should reflect)
+	rpm -qa | http (check the package exists on node or not)
+	ps -ef | grep http (check the serice is running or not)
+
+4) run sudo chef-client under node server
+check 
+
+	elinks :http:localhost
+u able to the new changes..
+
+====================================
+
+CRON setup
+--------------
+
+to check the cron jobs
+
+	sudo crontab -l  ( e for eidit, r remove)
+
+ # min 	hour 	dom 	mon 	dow
+# 0-59 	1-24 	1-31 	1-12 	0-7=sunday
+for every 15 min
+
+0,15,30,45 * * * *  /usr/bin/chef-client
+or
+*/15 * * * *  /usr/bin/chef-client
+
+download from supermarket
+
+	knife supermarket download  cron 4.0.0
+	sudo tar xvfz cron-4.0.0.tar.gz -C cookbooks/
+
+recipe:
+
+1)
+service 'cron' do
+	service_name node['cron']['service_name']
+	action [:enable, :start]
+end
+
+cron 'chef-client-run' do
+	minute '*/15'
+	command '/usr/bin/chef-client'
+end
+
+2) edit the node with cookbook
+	kinfe node edit centos7
+
+
+3) knife node show centos7
+
+
+============================================
+
+
+Installing tomoat server on centos7 (Manually)
+-----------------------------------------------------------
+
+https://www.vultr.com/docs/how-to-install-apache-tomcat-8-on-
+
+centos-7
+
+steps:
+
+1. Step 1: Update your CentOS system
+	sudo yum install epel-release
+	sudo yum update -y && sudo reboot
+
+2.Install Java
+	sudo yum install java-1.8.0-openjdk.x86_64
+
+check:
+	java -version
+	openjdk version "1.8.0_91"
+	OpenJDK Runtime Environment (build 1.8.0_91-b14)
+	OpenJDK 64-Bit Server VM (build 25.91-b14, mixed mode)
+
+3: Create a dedicated user for Apache Tomcat
+
+	sudo groupadd tomcat
+	sudo mkdir /opt/tomcat
+	sudo useradd -s /bin/nologin -g tomcat -d /opt/tomcat 
+
+tomcat
+
+ 4: Download and install the latest Apache Tomcat
+	cd ~
+	wget http://www-us.apache.org/dist/tomcat/tomcat-
+
+8/v8.0.33/bin/apache-tomcat-8.0.33.tar.gz
+	sudo tar -zxvf apache-tomcat-8.0.33.tar.gz -C /opt/tomcat --
+
+strip-components=1
+
+latest:
+http://mirror.fibergrid.in/apache/tomcat/tomcat-
+
+8/v8.5.12/bin/apache-tomcat-8.5.12.tar.gz
+sudo tar -zxvf apache-tomcat-8.5.12.tar.gz -C /opt/tomcat --strip-
+
+components=1
+
+5: Setup proper permissions
+
+	cd /opt/tomcat
+	sudo chgrp -R tomcat conf
+	sudo chmod g+rwx conf
+	sudo chmod g+r conf/*
+	sudo chown -R tomcat logs/ temp/ webapps/ work/
+
+	sudo chgrp -R tomcat bin
+	sudo chmod g+rwx bin
+	sudo chmod g+r bin/*
+
+Setup a Systemd unit file for Apache Tomcat
+
+	sudo vi /etc/systemd/system/tomcat.service
+
+		[Unit]
+Description=Apache Tomcat Web Application Container
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+Environment=JAVA_HOME=/usr/lib/jvm/jre
+Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat
+Environment=CATALINA_BASE=/opt/tomcat
+Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:
+
++UseParallelGC'
+Environment='JAVA_OPTS=-Djava.awt.headless=true -
+
+Djava.security.egd=file:/dev/./urandom'
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/bin/kill -15 $MAINPID
+
+User=tomcat
+Group=tomcat
+
+[Install]
+WantedBy=multi-user.target
+
+:wq!
+
+
+7: Install haveged, a security-related program
+
+	sudo yum install haveged
+	sudo systemctl start haveged.service
+	sudo systemctl enable haveged.service
+
+8: Start and test Apache Tomcat
+	sudo systemctl start tomcat.service
+	sudo systemctl enable tomcat.service
+
+
+	sudo firewall-cmd --zone=public --permanent --add-
+
+port=8080/tcp
+	sudo firewall-cmd --reload
+
+check:
+	http://[your-Vultr-server-IP]:8080
+
+
+==============================================
+
+Jenkins :
+----------
+
+copy url from jenkins.io
+http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+
+ 192.168.101.200
+
+java -jar jenkins.war <--httpPort=9090
+
+569eed8833d4461497b10366a230cd47
+
+3b3aafb68d0e4795acb52ec32264c655 (windows)
+
+0b23b958851240259f13d38bcdfd9ad7 (local vbox)
+admin - admin123
+
+
+
+
+http://104.198.241.217:9090/
+devops / @1
+
+the jenkins folder is will be avliable home directory
+cd ~/.jenkins/
+
+
+I. Role-based strategy confguration in jenkins
+--------------------------------------------------
+
+Add plugin "Role-based strategy"
+
+Enable "Role-based strategy" radio button in configure global security
+
+create jobs
+	dev-jobs
+	test-jobs
+go manage users and roles
+	add global roles
+	add project roles
+go manage user
+	create users
+	add user and patterns
+go manage users and roles
+	assign roles
+
+login and check w.r.t user whether correct jobs are reflecting...
+
+
+II. Freestyle project... job configs
+	General
+	source -- git/svn
+	build trigger - how to start
+	enviroment
+	Actual build settings
+	post build settings
+
+build triggers
+	To knock the jobs
+
+Trigger builds remotely (e.g., from scripts)
+Build after other projects are built	
+Build periodically	
+GitHub hook trigger for GITScm polling	
+Poll SCM
+
+
+II. setting up job when  git push is has happend automatically
+
+on job configuring 
+1. on general select GitHub Project1
+	and specify project url
+
+2.SCM
+	select GIT and enter Repo url
+
+3. provide shell scripts accordingly...
+
+cd /home/admin/war_prj/mysampleWebApp
+mvn --version
+which mvn
+
+# mvn clean package
+mvn deploy
+
+
+
+
+
+
+
+==========================================================
+
+Maven  -  (it is build tool)
+---------
+
+it can have 
+jar
+war
+ear 
+
+Installation
+
+sudo yum -y install maven
+or
+download and configure from site
+
+configure
+
+
+	1. 
+
+http://maven.apache.org
+		go to download section:
+
+	
+wget http://mirror.fibergrid.in/apache/maven/maven-
+
+3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+
+	
+
+sudo tar xvfz -c /opt apache-maven-3.3.9-bin.tar.gz
+
+	
+
+set variables:
+'
+export m2_home=/opt/apache-maven-3.3.9
+export path=./opt/apache0maven-3.3.9/bin:$path
+
+to variables make permanent
+vi ~/.bash_profile
+
+m2_home=/opt/apache-maven-3.3.9
+export m2_home
+
+path=./opt/apache0maven-3.3.9/bin:$path
+export path
+
+check 
+mvn --version
+it should show details
+java . maven limux etc., with out issues
+other wise it should configured properly...
+
+
+create prj dir
+
+mkdir jar_project
+cd jar_project
+
+mvn --version
+	it is should be give verion details
+
+mvn archetype:generate
+
+
+providedd this details
+955
+groupid: com..lync.practise
+artficat: practise
+snapshot :
+xyz
+
+results:
+	pom.xml
+	folder structure
+
+1, mvn validate
+	it will chec the pom.xml  and sees the dependcies under it.
+2. mvn complie
+	it will convert .java to .class
+3. mvn test
+	it will test the .class
+4. mvn package
+	it will collect all .class together and create desired o/p .jar	
+
+resolve issues if any while in above commands.
+
+check:
+java -cp target/practise-1.0-SNAPSHOT.jar com.lync.pracctise.App
+Hello World!
+
+mvn clean
+	it will clean the above  dir changes
+mvn package
+	it will create in one step all the above changes only..
+
+
+------II. war file project
+
+mvn archetype:generate
+
+select simple web project  here 
+958
+
+it create pom.xml file
+
+mvn package
+	generate war file in desired folder(mysimplewebapp)
+
+-->need to deploy this war file on web-werver like tomcat server
+
+so install tomcat server
+	sudo yum -y install tomcat
+	sudo yum -y install tomcat-admin
+	sudo yum install -y tomcat-admin-webapps
+
+add user tomcat  if  not avaliable
+change owner recursively for tomcat user
+	sudo chown -R tomcat:tomcat apache-tomcat-7.0.77/
+
+check 8080 port runing
+	otherwise enable it
+	startup.sh of bin folder / shutdown.sh
+
+check with 
+	localhost
+	ip:8080 -http://104.198.241.217:8080
+navigate manager url
+add role and user - manager-ui in  tomcat-users.xml of conf folder..
+
+sudo cp mysampleWebApp.war /opt/apache-tomcat-7.0.77/webapps/
+	login loclahost:8080/manager and mysamplewebadd
+will Hello World.
+
+jenkins .war file  deploy on tomcat above server:
+	download .war file
+https://updates.jenkins-ci.org/download/war/2.46.1/jenkins.war
+
+
+=========================================================
+
+
+
+Nexux = Resposiory
+--------
+
+it is a collection of jar/war files on the central location
+
+           creates a private hosted respository for our smapshots / releases
+	creates proxy repo pointing to Maven central 
+	creates a group of repo to provide all the above in single url	
+
+snapshosts are intermediate / temporary releases
+
+configure maven to talk to nexus
+
+
+installation
+	download sonata nexus - pro version
+	put it in folder
+	set up the path
+	start the nexus
+
+defualt port 8081
+def. credentails admin / admin123
+
+setup maven to talk to nexus
+
+
+http://download.sonatype.com/nexus/3/nexus-3.2.1-01-unix.tar.gz
+tar xvfz nexus-3.2.1-01-unix.tar.gz -C /home/tools/nexus/
+
+set env variable for nexuscd
+export PATH=/home/tools/nexus/nexus-3.2.1-01/bin:$PATH
+
+check which nexus
+
+ /home/tools/nexus/nexus-3.2.1-01/bin/nexus start
+starting nexus
+***Need to check the folder sturcture on which we are starting....
+	the above path / change accordingly
+*** need to start through sudo user only....
+
+
+setup central repo's 
+	snapshot, relaease, proxy and group it all this repos
+
+use https://repo1.maven.org/maven2/
+
+use this command to test for .jar file onlymvn 
+java -cp target/practise-1.0-SNAPSHOT.jar com.lync.pracctise.App
+hello world!!
+
+
+=========================================================
+vIGRANT
+----------
+
+pre-requiste
+Any provisnor like
+virtualbox (default)
+VMware etc.
+
+--32 bit..
+
+https://releases.hashicorp.com/vagrant/1.9.3/vagrant_1.9.3_i686.rpm?
+
+_ga=1.3113328.1708617183.1490788727
+
+Installation in windows:
+https://releases.hashicorp.com/vagrant/1.9.3/vagrant_1.9.3.msi?
+
+_ga=1.175475938.1708617183.1490788727
+
+create project file (food)
+
+cd food
+vagrant init
+vagrant  box add ubuntu/trusty32 
+vagrarnt box list
+
+vagrant up default (virtual box)
+
+or
+vagrant  up --provider virtualbox
+
+
+
+
+
+
+
+
+
+
+
+==========================================================
+
+docker
+-------
+
+It is thin contaner or virtualization  techonolgy, it all the 
+
+componenents to run the application except OS. 
+
+--> for data isolation and data protection.
+--> it takes minimal resources
+
+official site : docker.com
+
+--> can be used as web layer like 
+	httpd, nginx, tomcat, jenkins web 	logic, web sphere etc.,
+	cache
+	n0-sql db.
+
+--> docker can not used if u want to have persistant data.
+then u should have physical server.
+
+
+
+

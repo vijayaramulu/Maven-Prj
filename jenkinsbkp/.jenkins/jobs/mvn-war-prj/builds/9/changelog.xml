@@ -1,0 +1,11 @@
+commit 1ab41fc1c47f50369cdd20db24c6992d6724c26f
+tree a5feb5054f3cb9deb38078a6b58ba26eafa41a66
+parent 41dcd4628a7fcd08b639201657f6b6e4cacefeb5
+author vijay <vijay@lync.com> 2017-04-13 13:15:45 +0000
+committer vijay <vijay@lync.com> 2017-04-13 13:15:45 +0000
+
+    updated configuration file
+
+
+
+:000000 100644 0000000000000000000000000000000000000000 cc058843713e88f1d10cd274847c86f7c8adca18 A	configuration.txt

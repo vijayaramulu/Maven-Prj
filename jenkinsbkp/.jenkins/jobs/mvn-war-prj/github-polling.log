@@ -1,0 +1,9 @@
+Started on Apr 13, 2017 1:16:14 PM
+Started by event from 192.30.252.40 ⇒ http://104.198.241.217:9090/github-webhook/ on Thu Apr 13 13:16:14 UTC 2017
+Using strategy: Default
+[poll] Last Built Revision: Revision 41dcd4628a7fcd08b639201657f6b6e4cacefeb5 (refs/remotes/origin/master)
+ > git ls-remote -h https://github.com/vijayaramulu/Maven-Prj.git # timeout=10
+Found 1 remote heads on https://github.com/vijayaramulu/Maven-Prj.git
+[poll] Latest remote head revision on refs/heads/master is: 1ab41fc1c47f50369cdd20db24c6992d6724c26f
+Done. Took 0.33 sec
+Changes found

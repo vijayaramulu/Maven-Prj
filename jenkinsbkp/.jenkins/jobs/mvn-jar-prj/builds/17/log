@@ -1,0 +1,69 @@
+Started by user [8mha:////4N7wDyPWw2VcMB4rIW9jWApZbMB4y7qi4/U4ojckkUPhAAAAmB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgYe/dLi1CL9lNSy/IJiALPgLiHBAAAA[0madmin
+Building in workspace /home/admin/.jenkins/workspace/mvn-prj
+[mvn-prj] $ /bin/sh -xe /tmp/hudson4954902481548819002.sh
++ cd /home/admin/practise
++ which mvn
+/opt/apache-maven-3.5.0/bin/mvn
++ mvn clean package
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mBuilding practise 1.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+Downloading: http://104.198.241.217:8081/repository/mymaven-central/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.pom
+Downloaded: http://104.198.241.217:8081/repository/mymaven-central/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.pom (0 B at 0 B/s)
+Downloading: http://104.198.241.217:8081/repository/mymaven-central/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar
+Downloaded: http://104.198.241.217:8081/repository/mymaven-central/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar (0 B at 0 B/s)
+Downloading: http://104.198.241.217:8081/repository/mymaven-central/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.pom
+Downloaded: http://104.198.241.217:8081/repository/mymaven-central/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.pom (0 B at 0 B/s)
+Downloading: http://104.198.241.217:8081/repository/mymaven-central/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.jar
+Downloaded: http://104.198.241.217:8081/repository/mymaven-central/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.jar (0 B at 0 B/s)
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mpractise[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/admin/practise/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mpractise[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/admin/practise/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mpractise[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /home/admin/practise/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mpractise[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/admin/practise/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mpractise[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /home/admin/practise/target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mpractise[0;1m ---[m
+[[1;34mINFO[m] Surefire report directory: /home/admin/practise/target/surefire-reports
+Downloading: http://104.198.241.217:8081/repository/mymaven-central/org/apache/maven/surefire/surefire-junit3/2.12.4/surefire-junit3-2.12.4.pom
+[[1;34mINFO[m] Failure detected.
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;31mBUILD FAILURE[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time: 04:24 min
+[[1;34mINFO[m] Finished at: 2017-04-12T11:19:51Z
+[[1;34mINFO[m] Final Memory: 15M/37M
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;31mERROR[m] Failed to execute goal [32morg.apache.maven.plugins:maven-surefire-plugin:2.12.4:test[m [1m(default-test)[m on project [36mpractise[m: [1;31mUnable to generate classpath: org.apache.maven.artifact.resolver.ArtifactResolutionException: Unable to get dependency information for org.apache.maven.surefire:surefire-junit3:jar:2.12.4: Failed to retrieve POM for org.apache.maven.surefire:surefire-junit3:jar:2.12.4: Could not transfer artifact org.apache.maven.surefire:surefire-junit3:pom:2.12.4 from/to mymaven-central (http://104.198.241.217:8081/repository/mymaven-central/): Connect to 104.198.241.217:8081 [/104.198.241.217] failed: Connection refused (Connection refused)[m
+[[1;31mERROR[m] [1;31m  org.apache.maven.surefire:surefire-junit3:jar:2.12.4[m
+[[1;31mERROR[m] [1;31m[m
+[[1;31mERROR[m] [1;31mfrom the specified remote repositories:[m
+[[1;31mERROR[m] [1;31m  mymaven-central (http://104.198.241.217:8081/repository/mymaven-central/, releases=true, snapshots=false)[m
+[[1;31mERROR[m] [1;31mPath to dependency: [m
+[[1;31mERROR[m] [1;31m	1) dummy:dummy:jar:1.0[m
+[[1;31mERROR[m] [1;31m[m
+[[1;31mERROR[m] [1;31m[m
+[[1;31mERROR[m] -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

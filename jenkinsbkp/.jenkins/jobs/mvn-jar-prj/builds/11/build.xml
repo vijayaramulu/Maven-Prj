@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UpstreamCause>
+            <upstreamProject>test</upstreamProject>
+            <upstreamUrl>job/test/</upstreamUrl>
+            <upstreamBuild>3</upstreamBuild>
+            <upstreamCauses>
+              <hudson.model.Cause_-UpstreamCause>
+                <upstreamProject>mvn-prj</upstreamProject>
+                <upstreamUrl>job/mvn-prj/</upstreamUrl>
+                <upstreamBuild>10</upstreamBuild>
+                <upstreamCauses>
+                  <hudson.model.Cause_-UpstreamCause>
+                    <upstreamProject>test</upstreamProject>
+                    <upstreamUrl>job/test/</upstreamUrl>
+                    <upstreamBuild>2</upstreamBuild>
+                    <upstreamCauses>
+                      <hudson.model.Cause_-UpstreamCause>
+                        <upstreamProject>mvn-prj</upstreamProject>
+                        <upstreamUrl>job/mvn-prj/</upstreamUrl>
+                        <upstreamBuild>9</upstreamBuild>
+                        <upstreamCauses>
+                          <hudson.model.Cause_-UserIdCause>
+                            <userId>devops</userId>
+                          </hudson.model.Cause_-UserIdCause>
+                        </upstreamCauses>
+                      </hudson.model.Cause_-UpstreamCause>
+                    </upstreamCauses>
+                  </hudson.model.Cause_-UpstreamCause>
+                </upstreamCauses>
+              </hudson.model.Cause_-UpstreamCause>
+            </upstreamCauses>
+          </hudson.model.Cause_-UpstreamCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+  </actions>
+  <queueId>14</queueId>
+  <timestamp>1491823002928</timestamp>
+  <startTime>1491823002929</startTime>
+  <result>SUCCESS</result>
+  <duration>6704</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn></builtOn>
+  <workspace>/home/admin/.jenkins/workspace/mvn-prj</workspace>
+  <hudsonVersion>2.46.1</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits class="com.google.common.collect.EmptyImmutableSortedSet"/>
+</build>

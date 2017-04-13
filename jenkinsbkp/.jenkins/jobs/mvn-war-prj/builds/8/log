@@ -1,0 +1,83 @@
+Started by user [8mha:////4N7wDyPWw2VcMB4rIW9jWApZbMB4y7qi4/U4ojckkUPhAAAAmB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgYe/dLi1CL9lNSy/IJiALPgLiHBAAAA[0madmin
+Building in workspace /home/admin/.jenkins/workspace/mvn-war-prj
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/vijayaramulu/Maven-Prj.git # timeout=10
+Fetching upstream changes from https://github.com/vijayaramulu/Maven-Prj.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/vijayaramulu/Maven-Prj.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 41dcd4628a7fcd08b639201657f6b6e4cacefeb5 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 41dcd4628a7fcd08b639201657f6b6e4cacefeb5
+ > git rev-list 41dcd4628a7fcd08b639201657f6b6e4cacefeb5 # timeout=10
+[mvn-war-prj] $ /bin/sh -xe /tmp/hudson639626860888093946.sh
++ cd /home/admin/war_prj/mysampleWebApp
++ mvn --version
+[1mApache Maven 3.5.0 (ff8f5e7444045639af65f6095c62210b5713f426; 2017-04-03T19:39:06Z)[m
+Maven home: /opt/apache-maven-3.5.0
+Java version: 1.8.0_121, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.10.2.el7.x86_64", arch: "amd64", family: "unix"
++ which mvn
+/opt/apache-maven-3.5.0/bin/mvn
++ mvn deploy
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mBuilding mysampleWebApp Maven Webapp 1.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mmysampleWebApp[0;1m ---[m
+[[1;33mWARNING[m] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[[1;34mINFO[m] Copying 0 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mmysampleWebApp[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mmysampleWebApp[0;1m ---[m
+[[1;33mWARNING[m] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[[1;34mINFO[m] skip non existing resourceDirectory /home/admin/war_prj/mysampleWebApp/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mmysampleWebApp[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mmysampleWebApp[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-war-plugin:2.2:war[m [1m(default-war)[m @ [36mmysampleWebApp[0;1m ---[m
+[[1;34mINFO[m] Packaging webapp
+[[1;34mINFO[m] Assembling webapp [mysampleWebApp] in [/home/admin/war_prj/mysampleWebApp/target/mysampleWebApp]
+[[1;34mINFO[m] Processing war project
+[[1;34mINFO[m] Copying webapp resources [/home/admin/war_prj/mysampleWebApp/src/main/webapp]
+[[1;34mINFO[m] Webapp assembled in [53 msecs]
+[[1;34mINFO[m] Building war: /home/admin/war_prj/mysampleWebApp/target/mysampleWebApp.war
+[[1;34mINFO[m] WEB-INF/web.xml already added, skipping
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-install-plugin:2.4:install[m [1m(default-install)[m @ [36mmysampleWebApp[0;1m ---[m
+[[1;34mINFO[m] Installing /home/admin/war_prj/mysampleWebApp/target/mysampleWebApp.war to /home/admin/.m2/repository/org/lync/practise/mysampleWebApp/1.0-SNAPSHOT/mysampleWebApp-1.0-SNAPSHOT.war
+[[1;34mINFO[m] Installing /home/admin/war_prj/mysampleWebApp/pom.xml to /home/admin/.m2/repository/org/lync/practise/mysampleWebApp/1.0-SNAPSHOT/mysampleWebApp-1.0-SNAPSHOT.pom
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-deploy-plugin:2.7:deploy[m [1m(default-deploy)[m @ [36mmysampleWebApp[0;1m ---[m
+Downloading: http://localhost:8081/repository/mymaven-sabpshot/org/lync/practise/mysampleWebApp/1.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 775 B                   Downloaded: http://localhost:8081/repository/mymaven-sabpshot/org/lync/practise/mysampleWebApp/1.0-SNAPSHOT/maven-metadata.xml (775 B at 2.7 kB/s)
+Uploading: http://localhost:8081/repository/mymaven-sabpshot/org/lync/practise/mysampleWebApp/1.0-SNAPSHOT/mysampleWebApp-1.0-20170413.130930-7.war
+Progress (1): 2.0/2.3 kBProgress (1): 2.3 kB                        Uploaded: http://localhost:8081/repository/mymaven-sabpshot/org/lync/practise/mysampleWebApp/1.0-SNAPSHOT/mysampleWebApp-1.0-20170413.130930-7.war (2.3 kB at 7.1 kB/s)
+Uploading: http://localhost:8081/repository/mymaven-sabpshot/org/lync/practise/mysampleWebApp/1.0-SNAPSHOT/mysampleWebApp-1.0-20170413.130930-7.pom
+Progress (1): 1.2 kB                    Uploaded: http://localhost:8081/repository/mymaven-sabpshot/org/lync/practise/mysampleWebApp/1.0-SNAPSHOT/mysampleWebApp-1.0-20170413.130930-7.pom (1.2 kB at 5.5 kB/s)
+Downloading: http://localhost:8081/repository/mymaven-sabpshot/org/lync/practise/mysampleWebApp/maven-metadata.xml
+Progress (1): 289 B                   Downloaded: http://localhost:8081/repository/mymaven-sabpshot/org/lync/practise/mysampleWebApp/maven-metadata.xml (289 B at 4.9 kB/s)
+Uploading: http://localhost:8081/repository/mymaven-sabpshot/org/lync/practise/mysampleWebApp/1.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 775 B                   Uploaded: http://localhost:8081/repository/mymaven-sabpshot/org/lync/practise/mysampleWebApp/1.0-SNAPSHOT/maven-metadata.xml (775 B at 5.8 kB/s)
+Uploading: http://localhost:8081/repository/mymaven-sabpshot/org/lync/practise/mysampleWebApp/maven-metadata.xml
+Progress (1): 289 B                   Uploaded: http://localhost:8081/repository/mymaven-sabpshot/org/lync/practise/mysampleWebApp/maven-metadata.xml (289 B at 1.7 kB/s)
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time: 5.623 s
+[[1;34mINFO[m] Finished at: 2017-04-13T13:09:31Z
+[[1;34mINFO[m] Final Memory: 12M/31M
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+Finished: SUCCESS

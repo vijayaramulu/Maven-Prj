@@ -1,0 +1,57 @@
+Started by user [8mha:////4N7wDyPWw2VcMB4rIW9jWApZbMB4y7qi4/U4ojckkUPhAAAAmB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgYe/dLi1CL9lNSy/IJiALPgLiHBAAAA[0madmin
+Building in workspace /home/admin/.jenkins/workspace/mvn-prj
+[mvn-prj] $ /bin/sh -xe /tmp/hudson8141787756061314756.sh
++ cd /home/admin/practise
++ mvn clean package
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mBuilding practise 1.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mpractise[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/admin/practise/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mpractise[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/admin/practise/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mpractise[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /home/admin/practise/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mpractise[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/admin/practise/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mpractise[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /home/admin/practise/target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mpractise[0;1m ---[m
+[[1;34mINFO[m] Surefire report directory: /home/admin/practise/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.lync.pracctise.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:2.4:jar[m [1m(default-jar)[m @ [36mpractise[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/admin/practise/target/practise-1.0-SNAPSHOT.jar
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time: 4.356 s
+[[1;34mINFO[m] Finished at: 2017-04-10T09:41:22Z
+[[1;34mINFO[m] Final Memory: 14M/34M
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
++ cp /home/admin/practise/target/practise-1.0-SNAPSHOT.jar /home/tools/
+cp: cannot create regular file ‘/home/tools/practise-1.0-SNAPSHOT.jar’: Permission denied
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE
